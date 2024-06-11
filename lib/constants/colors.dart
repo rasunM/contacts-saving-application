@@ -6,6 +6,9 @@ const greyColor = Colors.grey;
 const whiteColor = Color.fromRGBO(230, 231, 233, 1);
 final blueColor = Colors.blue[400];
 const saveToLocationColor = Color.fromRGBO(64, 71, 77, 1);
+const contactDetialsCard = Color.fromARGB(255, 24, 28, 31);
+const contactFunctionButtonColor = Color.fromARGB(255, 203, 221, 233);
+const contactFunctionBackgroundColor = Color.fromARGB(255, 55, 73, 85);
 
 const cYellowColor = Color.fromARGB(255, 254, 198, 54);
 const cMaroonColor = Color.fromARGB(255, 239, 101, 92);
@@ -16,7 +19,7 @@ const cOrangeColor = Color.fromARGB(255, 250, 143, 61);
 const cPinkColor = Color.fromARGB(255, 255, 99, 183);
 
 class ColorPaletForContacts {
- static const List<Color> colorPaletContact = <Color>[
+  static const List<Color> colorPaletContact = <Color>[
     Color.fromARGB(255, 254, 198, 54),
     Color.fromARGB(255, 239, 101, 92),
     Color.fromARGB(255, 92, 185, 115),

@@ -4,6 +4,7 @@ import 'package:xiaomi_contact_app/create%20new%20contact%20page/data/contact_da
 import 'package:xiaomi_contact_app/home%20page/widgets/contact_list_homepage_display_menu.dart';
 
 class SearchBarCustom extends StatefulWidget {
+  
   const SearchBarCustom({super.key});
 
   @override
@@ -76,14 +77,16 @@ class _SearchBarCustomState extends State<SearchBarCustom> {
               for (int index = 0;
                   index < ContactDataCustom.contactList.length;
                   index++)
-                if (ContactDataCustom.contactList[index].contactName.toLowerCase()
+                if (ContactDataCustom.contactList[index].contactName
+                    .toLowerCase()
                     .contains(searchController.text.toLowerCase()))
                   ContactsListDisplay(
+                  
                     contactList: ContactDataCustom.contactList,
-                    colorPallet: ColorPaletForContacts.colorPaletContact,
+            
                     index: index,
                     searchingItem: false,
-                  )
+                  ),
           ],
         ),
       ),

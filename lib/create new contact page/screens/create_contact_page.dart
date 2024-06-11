@@ -11,9 +11,8 @@ import 'package:xiaomi_contact_app/create%20new%20contact%20page/widgets/saved_l
 import 'package:xiaomi_contact_app/create%20new%20contact%20page/widgets/text_field_custom.dart';
 
 class CreateNewContactPage extends StatefulWidget {
-  const CreateNewContactPage({
-    super.key,
-  });
+  final ContactModelCustom? contactModel;
+  const CreateNewContactPage({super.key, this.contactModel});
 
   @override
   State<CreateNewContactPage> createState() => _CreateNewContactPageState();
@@ -34,6 +33,16 @@ class _CreateNewContactPageState extends State<CreateNewContactPage> {
   bool nameControllerClicked = false;
   bool emailControllerClicked = false;
   bool phoneNumberControllerClicked = false;
+
+  @override
+  void initState() {
+    super.initState();
+    if (widget.contactModel != null) {
+      nameController.text = widget.contactModel!.contactName;
+      phoneNumberController.text = widget.contactModel!.phoneNumber.toString();
+      emailController.text = widget.contactModel!.emailAddress;
+    }
+  }
 
   void _handleItemSelected(SaveLocationModelCustom location) {
     setState(() {
@@ -111,11 +120,11 @@ class _CreateNewContactPageState extends State<CreateNewContactPage> {
                             nameControllerClicked = true;
                             emailControllerClicked = false;
                             phoneNumberControllerClicked = false;
-                            if (nameController.text.isNotEmpty) {
-                              nameControllerShowButton = true;
-                              phoneNumberControllerShowButton = false;
-                              emailControllerShowButton = false;
-                            }
+
+                            nameControllerShowButton =
+                                nameController.text.isNotEmpty;
+                            phoneNumberControllerShowButton = false;
+                            emailControllerShowButton = false;
                           });
                         },
                         clicked: nameControllerClicked,
@@ -146,11 +155,11 @@ class _CreateNewContactPageState extends State<CreateNewContactPage> {
                             phoneNumberControllerClicked = true;
                             emailControllerClicked = false;
                             nameControllerClicked = false;
-                            if (phoneNumberController.text.isNotEmpty) {
-                              phoneNumberControllerShowButton = true;
-                              nameControllerShowButton = false;
-                              emailControllerShowButton = false;
-                            }
+
+                            phoneNumberControllerShowButton =
+                                phoneNumberController.text.isNotEmpty;
+                            nameControllerShowButton = false;
+                            emailControllerShowButton = false;
                           });
                         },
                         clicked: phoneNumberControllerClicked,
@@ -181,11 +190,11 @@ class _CreateNewContactPageState extends State<CreateNewContactPage> {
                             phoneNumberControllerClicked = false;
                             emailControllerClicked = true;
                             nameControllerClicked = false;
-                            if (emailController.text.isNotEmpty) {
-                              emailControllerShowButton = true;
-                              nameControllerShowButton = false;
-                              phoneNumberControllerShowButton = false;
-                            }
+
+                            emailControllerShowButton =
+                                emailController.text.isNotEmpty;
+                            nameControllerShowButton = false;
+                            phoneNumberControllerShowButton = false;
                           });
                         },
                         clicked: emailControllerClicked,
